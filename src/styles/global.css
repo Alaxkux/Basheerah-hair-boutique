@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+:root {
+  --pink:        #f472b6;
+  --pink-deep:   #ec4899;
+  --pink-light:  #fce7f3;
+  --pink-pale:   #fdf2f8;
+  --pink-mid:    #fbcfe8;
+  --white:       #ffffff;
+  --dark:        #1a1a2e;
+  --gray:        #6b7280;
+  --gray-light:  #9ca3af;
+  --green-wa:    #25D366;
+  --font-display:'Dancing Script', cursive;
+  --font-body:   'Nunito', sans-serif;
+  --nav-h:       64px;
+  --bottom-nav-h:70px;
+  --radius-sm:   10px;
+  --radius:      18px;
+  --radius-lg:   24px;
+  --radius-full: 9999px;
+  --shadow-sm:   0 2px 12px rgba(236,72,153,0.10);
+  --shadow:      0 4px 24px rgba(236,72,153,0.18);
+  --shadow-lg:   0 8px 40px rgba(236,72,153,0.25);
+  --transition:  0.22s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+*, *::before, *::after {
+  margin:0; padding:0; box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: #ecc6e4;
+  min-height: 100vh;
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* lock scroll when drawer open */
+body.drawer-open { overflow: hidden; }
+
+::-webkit-scrollbar { display: none; }
+* { scrollbar-width: none; }
+
+img { display: block; max-width: 100%; }
+button { font-family: var(--font-body); cursor: pointer; }
+a { text-decoration: none; color: inherit; }
+
+/* ─── App shell ─── */
+.app-shell {
+  width: 100%;
+  max-width: 500px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: linear-gradient(180deg,#fdf2f8 0%,#fff0f8 100%);
+  position: relative;
+  overflow-x: hidden;
+  box-shadow: 0 0 80px rgba(236,72,153,0.15);
+}
+
+/* Wide screens: show phone-like frame */
+@media (min-width: 600px) {
+  body { display: flex; justify-content: center; align-items: flex-start; padding: 24px 0 40px; }
+  .app-shell { border-radius: 36px; overflow: hidden; min-height: 90vh; }
+}
+@media (max-width: 599px) {
+  .app-shell { max-width: 100%; min-height: 100dvh; }
+}
+
+/* ─── Page wrapper ─── */
+.page {
+  padding-bottom: calc(var(--bottom-nav-h) + 16px);
+  animation: fadeSlideUp 0.28s ease both;
+}
+
+/* ─── Section header ─── */
+.section-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 20px 14px;
+}
+.section-title { font-size: 18px; font-weight: 800; color: var(--dark); }
+.view-all-btn  { background:none; border:none; color:var(--pink-deep); font-weight:700; font-size:13px; }
+
+/* ─── Empty state ─── */
+.empty-state { text-align:center; padding:64px 20px; color:var(--gray-light); }
+.empty-state .empty-icon { font-size:64px; margin-bottom:14px; }
+.empty-state h3 { font-size:18px; font-weight:800; color:var(--dark); margin-bottom:8px; }
+.empty-state p  { font-size:14px; margin-bottom:24px; }
+
+.page-header { padding:18px 20px 14px; font-size:22px; font-weight:800; color:var(--dark); }
+
+/* ─── Keyframes ─── */
+@keyframes fadeSlideUp {
+  from { opacity:0; transform:translateY(14px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes toastIn {
+  from { opacity:0; transform:translate(-50%,20px) scale(0.92); }
+  to   { opacity:1; transform:translate(-50%,0)    scale(1); }
+}
+@keyframes drawerIn {
+  from { transform:translateX(-100%); }
+  to   { transform:translateX(0); }
+}
+@keyframes popIn {
+  0%   { transform:scale(0.8); opacity:0; }
+  70%  { transform:scale(1.12); }
+  100% { transform:scale(1); opacity:1; }
+}
+@keyframes pulse {
+  0%,100% { box-shadow:0 0 0 0 rgba(236,72,153,0.4); }
+  50%      { box-shadow:0 0 0 10px rgba(236,72,153,0); }
+}
+@keyframes twinkle {
+  0%,100% { opacity:1; transform:scale(1) rotate(0deg); }
+  50%      { opacity:0.4; transform:scale(0.6) rotate(20deg); }
+}
+@keyframes float {
+  0%,100% { transform:translateY(0); }
+  50%      { transform:translateY(-8px); }
+}
+@keyframes confetti {
+  0%   { transform:translateY(0) rotate(0deg); opacity:1; }
+  100% { transform:translateY(80px) rotate(720deg); opacity:0; }
+}
+@keyframes shimmer {
+  0%   { background-position:-400px 0; }
+  100% { background-position:400px 0; }
+}
+@keyframes slideInRight {
+  from { opacity:0; transform:translateX(30px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+
+/* ─── Scroll reveal ─── */
+.reveal { opacity:0; transform:translateY(20px); transition:opacity 0.5s ease, transform 0.5s ease; }
+.reveal.revealed { opacity:1; transform:none; }
