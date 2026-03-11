@@ -107,4 +107,3 @@ The built `/dist` folder is a static site — host it on:
 - [Netlify](https://netlify.com) — drag & drop `/dist`
 - [Vercel](https://vercel.com) — connect repo
 - Any static file hosting / CDN
-# Basheerah-hair-boutique

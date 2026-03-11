@@ -23,6 +23,7 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 // Utils
 import { WHATSAPP_NUMBER } from "./data/bundles.js";
 import { saveCart, loadCart, saveOrders, loadOrders, saveProfile, loadProfile } from "./utils/storage.js";
+import { THEMES } from "./pages/ProfilePage.jsx";
 
 // Styles
 import "./styles/global.css";
@@ -56,6 +57,24 @@ export default function App() {
   const [searchOpen,     setSearchOpen]     = useState(false);
   const [desktopSearch,  setDesktopSearch]  = useState("");
 
+  // Apply saved theme on first load
+  useEffect(() => {
+    const saved = loadProfile();
+    const idx = saved?.themeIdx ?? 0;
+    const t = THEMES[idx];
+    if (t) {
+      const r = document.documentElement.style;
+      r.setProperty("--pink",       t.accent);
+      r.setProperty("--pink-deep",  t.accentDeep);
+      r.setProperty("--pink-light", t.accentLight);
+      r.setProperty("--pink-mid",   t.accentMid);
+      r.setProperty("--pink-pale",  t.accentPale);
+      const shell = document.querySelector(".app-shell");
+      if (shell) shell.style.background = t.appBg;
+      document.body.style.background = t.bodyBg;
+    }
+  }, []);
+
   // ── Auto-save whenever state changes ──
   useEffect(() => { saveCart(cart); },   [cart]);
   useEffect(() => { saveOrders(orders); }, [orders]);
@@ -73,8 +92,9 @@ export default function App() {
         ? prev.map(i => i.id===bundle.id ? {...i,qty:i.qty+1} : i)
         : [...prev, {...bundle, qty:1}];
     });
-    // No floating toast — only cart badge updates
-  }, []);
+    // Floating toast notification
+    showToast(`${bundle.emoji} ${bundle.name} added to cart!`);
+  }, [showToast]);
 
   const removeFromCart = useCallback((id) => setCart(prev => prev.filter(i => i.id!==id)), []);
   const updateQty      = useCallback((id, delta) =>
