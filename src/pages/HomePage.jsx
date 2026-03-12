@@ -67,7 +67,7 @@ export default function HomePage({ onNavigate, onSelectBundle }) {
           <div className="hero-v2-img-wrap">
             <div className="hero-v2-img-oval-bg" />
             <img
-              src="hero image.jpg"
+              src="/images/hero_image.jpg"
               alt="Hair accessories"
               className="hero-v2-img"
             />
