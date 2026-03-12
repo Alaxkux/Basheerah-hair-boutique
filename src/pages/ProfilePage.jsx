@@ -18,45 +18,56 @@ const AVATARS = [
   {emoji:"🔥",  bg:"linear-gradient(135deg,#f43f5e,#fb923c)"},
 ];
 
+// Peach Glow removed — replaced with Dark Mode (🖤)
 export const THEMES = [
   {
     name: "Pink Dream",
+    emoji: "🌸",
     accent: "#ec4899", accentDeep: "#db2777", accentLight: "#fce7f3",
     accentMid: "#fbcfe8", accentPale: "#fdf2f8",
     appBg: "linear-gradient(180deg,#fdf2f8 0%,#fff0f8 100%)",
     bodyBg: "#ecc6e4",
+    darkMode: false,
   },
   {
     name: "Lavender",
+    emoji: "💜",
     accent: "#8b5cf6", accentDeep: "#7c3aed", accentLight: "#ede9fe",
     accentMid: "#ddd6fe", accentPale: "#f5f3ff",
     appBg: "linear-gradient(180deg,#f5f3ff 0%,#ede9fe 100%)",
     bodyBg: "#c4b5fd",
-  },
-  {
-    name: "Peach Glow",
-    accent: "#f97316", accentDeep: "#ea580c", accentLight: "#ffedd5",
-    accentMid: "#fed7aa", accentPale: "#fff7ed",
-    appBg: "linear-gradient(180deg,#fff7ed 0%,#fff1f2 100%)",
-    bodyBg: "#fdba74",
+    darkMode: false,
   },
   {
     name: "Mint Fresh",
+    emoji: "🌿",
     accent: "#10b981", accentDeep: "#059669", accentLight: "#d1fae5",
     accentMid: "#a7f3d0", accentPale: "#f0fdf4",
     appBg: "linear-gradient(180deg,#f0fdf4 0%,#ecfeff 100%)",
     bodyBg: "#6ee7b7",
+    darkMode: false,
   },
   {
     name: "Gold Luxe",
+    emoji: "✨",
     accent: "#d97706", accentDeep: "#b45309", accentLight: "#fef3c7",
     accentMid: "#fde68a", accentPale: "#fffbeb",
     appBg: "linear-gradient(180deg,#fffbeb 0%,#fefce8 100%)",
     bodyBg: "#fcd34d",
+    darkMode: false,
+  },
+  {
+    name: "Dark Mode",
+    emoji: "🖤",
+    accent: "#a855f7", accentDeep: "#7c3aed", accentLight: "#2d1a4e",
+    accentMid: "#3d1f6e", accentPale: "#1a0a2e",
+    appBg: "linear-gradient(180deg,#1a0a2e 0%,#0f0118 100%)",
+    bodyBg: "#0f0118",
+    darkMode: true,
   },
 ];
 
-// Apply theme to entire app via CSS variables
+// Apply theme to entire app via CSS variables + dark mode class
 function applyTheme(theme) {
   const r = document.documentElement.style;
   r.setProperty("--pink",       theme.accent);
@@ -64,31 +75,32 @@ function applyTheme(theme) {
   r.setProperty("--pink-light", theme.accentLight);
   r.setProperty("--pink-mid",   theme.accentMid);
   r.setProperty("--pink-pale",  theme.accentPale);
-  // App shell background
   const shell = document.querySelector(".app-shell");
   if (shell) shell.style.background = theme.appBg;
-  // Body background
   document.body.style.background = theme.bodyBg;
+  // Toggle dark mode class on body
+  if (theme.darkMode) {
+    document.body.classList.add("dark-mode");
+  } else {
+    document.body.classList.remove("dark-mode");
+  }
 }
 
 export default function ProfilePage({ onNavigate, orderCount, initialProfile, onProfileChange }) {
   const init = initialProfile || {name:"Hair Queen", avatarIdx:0, themeIdx:0};
-  const [name,         setName]         = useState(init.name);
-  const [editingName,  setEditingName]  = useState(false);
-  const [avatarIdx,    setAvatarIdx]    = useState(init.avatarIdx);
-  const [themeIdx,     setThemeIdx]     = useState(init.themeIdx);
-  const [showAvatars,  setShowAvatars]  = useState(false);
+  const [name,          setName]          = useState(init.name);
+  const [editingName,   setEditingName]   = useState(false);
+  const [avatarIdx,     setAvatarIdx]     = useState(init.avatarIdx);
+  const [themeIdx,      setThemeIdx]      = useState(init.themeIdx);
+  const [showAvatars,   setShowAvatars]   = useState(false);
   const [confirmAvatar, setConfirmAvatar] = useState(null);
-  const [confirmTheme,  setConfirmTheme]  = useState(null); // pending theme idx
+  const [confirmTheme,  setConfirmTheme]  = useState(null);
 
   const isDesktop = window.innerWidth >= 1024;
   const avatar = AVATARS[avatarIdx];
   const theme  = THEMES[themeIdx];
 
-  // Apply saved theme on mount
-  useEffect(() => {
-    applyTheme(THEMES[themeIdx]);
-  }, []);
+  useEffect(() => { applyTheme(THEMES[themeIdx]); }, []);
 
   const persist = (updates) => {
     const p = {name, avatarIdx, themeIdx, ...updates};
@@ -99,15 +111,12 @@ export default function ProfilePage({ onNavigate, orderCount, initialProfile, on
   const saveName = () => { setEditingName(false); persist({name}); };
 
   const applyAvatar = (i) => {
-    setAvatarIdx(i);
-    setShowAvatars(false);
-    setConfirmAvatar(null);
+    setAvatarIdx(i); setShowAvatars(false); setConfirmAvatar(null);
     persist({avatarIdx: i});
   };
 
   const applyThemeChange = (i) => {
-    setThemeIdx(i);
-    setConfirmTheme(null);
+    setThemeIdx(i); setConfirmTheme(null);
     applyTheme(THEMES[i]);
     persist({themeIdx: i});
   };
@@ -123,7 +132,6 @@ export default function ProfilePage({ onNavigate, orderCount, initialProfile, on
     {icon:"📍", label:"Track My Order",  sub:"Via WhatsApp",    action:()=>contact("Hi! I'd like to track my order 💕")},
   ];
 
-  // Mobile: theme picker inline (no bottom sheet) — tapping a theme dot shows confirm immediately
   const themePicker = (
     <div className="theme-picker-row">
       <div className="theme-picker-label">App Theme 🎨</div>
@@ -131,10 +139,16 @@ export default function ProfilePage({ onNavigate, orderCount, initialProfile, on
         {THEMES.map((t,i) => (
           <button key={i}
             className={`theme-dot ${i === themeIdx ? "active" : ""}`}
-            style={{background: t.accent, borderColor: i === themeIdx ? "#1a1a2e" : "transparent"}}
+            style={{
+              background: t.darkMode ? "linear-gradient(135deg,#1a0a2e,#0f0118)" : t.accent,
+              borderColor: i === themeIdx ? (t.darkMode ? "#a855f7" : "#1a1a2e") : "transparent",
+              border: t.darkMode ? "3px solid" : undefined,
+            }}
             title={t.name}
             onClick={() => setConfirmTheme(i)}
-          />
+          >
+            {t.darkMode ? <span style={{fontSize:14}}>🖤</span> : null}
+          </button>
         ))}
       </div>
       <div className="theme-name-label">{theme.name}</div>
@@ -156,7 +170,7 @@ export default function ProfilePage({ onNavigate, orderCount, initialProfile, on
               style={{borderBottomColor: theme.accent}}
             />
           : <h2 onClick={() => setEditingName(true)}
-              style={{cursor:"pointer", fontWeight:800, fontSize:20, color:"var(--dark)", marginTop:10}}>
+              style={{cursor:"pointer", fontWeight:800, fontSize:20, color: theme.darkMode ? "#f0e6ff" : "var(--dark)", marginTop:10}}>
               {name} ✏️
             </h2>
         }
@@ -164,11 +178,7 @@ export default function ProfilePage({ onNavigate, orderCount, initialProfile, on
           Basheerah Hair Boutique VIP 💗
         </p>
       </div>
-
-      {/* Theme picker — visible on both mobile and desktop */}
-      <div style={{padding:"0 20px 20px"}}>
-        {themePicker}
-      </div>
+      <div style={{padding:"0 20px 20px"}}>{themePicker}</div>
     </div>
   );
 
@@ -193,7 +203,7 @@ export default function ProfilePage({ onNavigate, orderCount, initialProfile, on
     <div className="page" style={{background: theme.accentPale}}>
       {isDesktop ? (
         <div className="desktop-profile-layout">
-          <div style={{background:"#fff", borderRadius:"var(--radius-lg)", boxShadow:"var(--shadow-sm)", overflow:"hidden"}}>
+          <div style={{background: theme.darkMode ? "#1e0a2e" : "#fff", borderRadius:"var(--radius-lg)", boxShadow:"var(--shadow-sm)", overflow:"hidden"}}>
             {profileCard}
           </div>
           <div>{rowsList}</div>
@@ -202,7 +212,6 @@ export default function ProfilePage({ onNavigate, orderCount, initialProfile, on
         <>{profileCard}{rowsList}</>
       )}
 
-      {/* Avatar picker sheet */}
       {showAvatars && (
         <div className="modal-overlay" onClick={() => setShowAvatars(false)}>
           <div className="bottom-sheet" onClick={e => e.stopPropagation()}>
@@ -220,7 +229,6 @@ export default function ProfilePage({ onNavigate, orderCount, initialProfile, on
         </div>
       )}
 
-      {/* Confirm avatar */}
       {confirmAvatar !== null && (
         <ConfirmDialog
           title="Change Avatar?"
@@ -232,11 +240,12 @@ export default function ProfilePage({ onNavigate, orderCount, initialProfile, on
         />
       )}
 
-      {/* Confirm theme — shows immediately when any theme dot is tapped */}
       {confirmTheme !== null && (
         <ConfirmDialog
-          title={`Switch to "${THEMES[confirmTheme].name}"? 🎨`}
-          message={`Your whole app will change to the ${THEMES[confirmTheme].name} colour theme. Try it?`}
+          title={`Switch to "${THEMES[confirmTheme].name}"? ${THEMES[confirmTheme].emoji}`}
+          message={THEMES[confirmTheme].darkMode
+            ? `Switch to Dark Mode? The whole app will go beautifully dark 🖤`
+            : `Switch to the "${THEMES[confirmTheme].name}" colour theme?`}
           confirmLabel="Yes, apply it!"
           cancelLabel="Cancel"
           onConfirm={() => applyThemeChange(confirmTheme)}

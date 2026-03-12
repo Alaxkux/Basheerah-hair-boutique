@@ -5,6 +5,7 @@ import TopNav       from "./components/TopNav.jsx";
 import BottomNav    from "./components/BottomNav.jsx";
 import Drawer       from "./components/Drawer.jsx";
 import Toast        from "./components/Toast.jsx";
+import PWAInstallPrompt from "./components/PWAInstallPrompt.jsx";
 
 // Desktop components
 import DesktopTopNav        from "./components/DesktopTopNav.jsx";
@@ -12,7 +13,7 @@ import DesktopHero          from "./components/DesktopHero.jsx";
 import DesktopBundleSection from "./components/DesktopBundleSection.jsx";
 import DesktopFooter        from "./components/DesktopFooter.jsx";
 
-// Pages (shared mobile + desktop)
+// Pages
 import HomePage    from "./pages/HomePage.jsx";
 import BundlesPage from "./pages/BundlesPage.jsx";
 import DetailPage  from "./pages/DetailPage.jsx";
@@ -46,7 +47,6 @@ function useIsDesktop() {
 export default function App() {
   const isDesktop = useIsDesktop();
 
-  // ── State — all loaded from localStorage on init ──
   const [activePage,     setActivePage]     = useState("home");
   const [selectedBundle, setSelectedBundle] = useState(null);
   const [cart,           setCart]           = useState(() => loadCart());
@@ -57,7 +57,7 @@ export default function App() {
   const [searchOpen,     setSearchOpen]     = useState(false);
   const [desktopSearch,  setDesktopSearch]  = useState("");
 
-  // Apply saved theme on first load
+  // Apply saved theme on first load (including dark mode)
   useEffect(() => {
     const saved = loadProfile();
     const idx = saved?.themeIdx ?? 0;
@@ -72,19 +72,18 @@ export default function App() {
       const shell = document.querySelector(".app-shell");
       if (shell) shell.style.background = t.appBg;
       document.body.style.background = t.bodyBg;
+      if (t.darkMode) document.body.classList.add("dark-mode");
+      else document.body.classList.remove("dark-mode");
     }
   }, []);
 
-  // ── Auto-save whenever state changes ──
-  useEffect(() => { saveCart(cart); },   [cart]);
+  useEffect(() => { saveCart(cart); },     [cart]);
   useEffect(() => { saveOrders(orders); }, [orders]);
 
-  // Toast — no more floating cart notification, just badge
   const showToast = useCallback((msg) => {
     setToast(msg); setTimeout(() => setToast(null), 2400);
   }, []);
 
-  // ── Cart ──
   const addToCart = useCallback((bundle) => {
     setCart(prev => {
       const ex = prev.find(i => i.id === bundle.id);
@@ -92,7 +91,6 @@ export default function App() {
         ? prev.map(i => i.id===bundle.id ? {...i,qty:i.qty+1} : i)
         : [...prev, {...bundle, qty:1}];
     });
-    // Floating toast notification
     showToast(`${bundle.emoji} ${bundle.name} added to cart!`);
   }, [showToast]);
 
@@ -101,7 +99,6 @@ export default function App() {
     setCart(prev => prev.map(i => i.id===id ? {...i,qty:Math.max(1,i.qty+delta)} : i)), []);
   const cartCount = cart.reduce((s,i) => s+i.qty, 0);
 
-  // ── Orders ──
   const placeOrder = useCallback(() => {
     if (!cart.length) return;
     const newOrders = cart.map((item, idx) => ({
@@ -116,25 +113,20 @@ export default function App() {
     navigate("orders");
   }, [cart, showToast]);
 
-  // ── Profile ──
   const handleProfileChange = useCallback((p) => {
-    setProfile(p);
-    saveProfile(p);
+    setProfile(p); saveProfile(p);
   }, []);
 
-  // ── WhatsApp ──
   const openWhatsApp = useCallback((msg = "Hi! I'd like to shop 💕") => {
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
   }, []);
 
-  // ── Navigation ──
   const navigate = useCallback((page) => {
     setActivePage(page);
     if (page !== "bundles") { setSearchOpen(false); setDesktopSearch(""); }
     window.scrollTo({top:0,behavior:"smooth"});
   }, []);
 
-  // ── Shared page render ──
   const renderPage = () => {
     switch(activePage) {
       case "home":    return <HomePage    onNavigate={navigate} onSelectBundle={setSelectedBundle} />;
@@ -147,11 +139,7 @@ export default function App() {
     }
   };
 
-  /* ══════════════════════════════
-     DESKTOP LAYOUT
-  ══════════════════════════════ */
   if (isDesktop) {
-    const isHomePage = activePage === "home";
     return (
       <div className="app-shell">
         <DesktopTopNav
@@ -160,13 +148,11 @@ export default function App() {
           onNavigate={navigate}
           onSearch={(q) => { setDesktopSearch(q); if (activePage !== "bundles") navigate("bundles"); }}
         />
-
         <main className="desktop-content">
-          {isHomePage ? (
+          {activePage === "home" ? (
             <>
               <DesktopHero onNavigate={navigate} />
               <DesktopBundleSection onSelectBundle={setSelectedBundle} onNavigate={navigate} />
-              {/* Trust bar */}
               <div className="trust-bar" style={{margin:"0",borderRadius:0}}>
                 {[["💗","Quality First"],["🌿","Hair-Friendly"],["🚚","Fast Delivery"],["🎁","Gift Packaging"]].map(([icon,label])=>(
                   <div key={label} className="trust-item">
@@ -175,37 +161,30 @@ export default function App() {
                 ))}
               </div>
             </>
-          ) : (
-            renderPage()
-          )}
+          ) : renderPage()}
         </main>
-
         <DesktopFooter onNavigate={navigate} />
         <Toast message={toast} />
+        <PWAInstallPrompt activePage={activePage} />
       </div>
     );
   }
 
-  /* ══════════════════════════════
-     MOBILE LAYOUT — completely unchanged
-  ══════════════════════════════ */
   return (
     <div className="app-shell">
       {menuOpen && (
         <Drawer onClose={() => setMenuOpen(false)} onNavigate={navigate} onWhatsApp={openWhatsApp} />
       )}
-
       <TopNav
         cartCount={cartCount}
         onMenuOpen={() => setMenuOpen(true)}
         onSearch={() => { setSearchOpen(s => !s); setActivePage("bundles"); }}
         onCartClick={() => navigate("cart")}
       />
-
       {renderPage()}
-
       <BottomNav activePage={activePage} onNavigate={navigate} />
       <Toast message={toast} />
+      <PWAInstallPrompt activePage={activePage} />
     </div>
   );
 }
