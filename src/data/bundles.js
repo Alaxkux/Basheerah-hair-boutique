@@ -59,9 +59,9 @@ export const bundles = [
       // SLOT 1 — Main product photo (shown on card & first in gallery)
       "/images/b.jpeg",
       // SLOT 2 — Second gallery photo
-      "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80",
-      // SLOT 3 — Third gallery photo
-      "https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&q=80",
+      "images/ac.jpeg",
+    "images/ab.jpeg",
+    "images/ad.jpeg",
     ],
   },
 
@@ -83,8 +83,9 @@ export const bundles = [
     colors:["#1f2937","#dc2626","#d97706","#111827"],
     images:[
       "images/c.jpeg",
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80",
-      "https://images.unsplash.com/photo-1560707303-4e980ce876ad?w=600&q=80",
+      "images/ac.jpeg",
+    "images/ab.jpeg",
+    "images/ad.jpeg"
     ],
   },
 
@@ -106,8 +107,9 @@ export const bundles = [
     colors:["#c4b5fd","#f0abfc","#f9a8d4","#818cf8"],
     images:[
       "images/d.jpeg",
-      "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600&q=80",
-      "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80",
+      "images/ac.jpeg",
+    "images/ab.jpeg",
+    "images/ad.jpeg"
     ],
   },
 
@@ -129,8 +131,9 @@ export const bundles = [
     colors:["#92400e","#1f2937","#d97706","#78350f"],
     images:[
       "images/e.jpeg",
-      "https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&q=80",
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80",
+      "images/ac.jpeg",
+    "images/ab.jpeg",
+    "images/ad.jpeg"
     ],
   },
 
@@ -152,8 +155,9 @@ export const bundles = [
     colors:["#f9a8d4","#fda4af","#fecdd3","#fbcfe8"],
     images:[
       "images/f.jpeg",
-      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&q=80",
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80",
+      "images/ac.jpeg",
+    "images/ab.jpeg",
+    "images/ad.jpeg"
     ],
   },
 
@@ -175,8 +179,9 @@ export const bundles = [
     colors:["#92400e","#b45309","#d97706","#78350f"],
     images:[
       "images/g.jpeg",
-      "https://images.unsplash.com/photo-1560707303-4e980ce876ad?w=600&q=80",
-      "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600&q=80",
+      "images/ac.jpeg",
+    "images/ab.jpeg",
+    "images/ad.jpeg"
     ],
   },
 
@@ -198,8 +203,9 @@ export const bundles = [
     colors:["#f87171","#fb923c","#facc15","#4ade80","#60a5fa","#c084fc"],
     images:[
       "images/b.jpeg",
-      "https://images.unsplash.com/photo-1560707303-4e980ce876ad?w=600&q=80",
-      "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600&q=80",
+      "images/ac.jpeg",
+    "images/ab.jpeg",
+    "images/ad.jpeg"
     ],
   },
    
@@ -218,8 +224,9 @@ export const bundles = [
   colors:["#f9a8d4","#fbcfe8","#c4b5fd","#ddd6fe","#a5b4fc","#bfdbfe"],
   images:[
     "images/c.jpeg",
-    "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&q=80",
-    "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80",
+    "images/ac.jpeg",
+    "images/ab.jpeg",
+    "images/ad.jpeg"
   ],
   },
 
@@ -238,8 +245,9 @@ export const bundles = [
   colors:["#fbbf24","#f472b6","#fb7185","#facc15","#fcd34d","#fde68a"],
   images:[
     "images/d.jpeg",
-    "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&q=80",
-    "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=600&q=80",
+    "images/ac.jpeg",
+    "images/ab.jpeg",
+    "images/ad.jpeg"
   ],
   },
 
@@ -258,8 +266,9 @@ export const bundles = [
   colors:["#111827","#374151","#6b7280","#9ca3af","#d1d5db","#f3f4f6"],
   images:[
     "images/b.jpeg",
-    "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=600&q=80",
-    "https://images.unsplash.com/photo-1593032465175-481ac7f401f0?w=600&q=80",
+    "images/ac.jpeg",
+    "images/ab.jpeg",
+    "images/ad.jpeg"
   ],
   },
 
