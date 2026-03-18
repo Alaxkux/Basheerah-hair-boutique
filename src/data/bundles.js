@@ -44,232 +44,133 @@ export const bundles = [
   // ─────────────────────────────────────────────────────────
   {
     id: 1,
-    name: "Soft Girl Starter Pack",
-    description: "Pastel scrunchies + claw clips for your dreamy, cloud-like aesthetic. Perfect for school, brunch, and soft life vibes.",
-    price: "₦4,500", oldPrice: "₦6,000", emoji: "🌸", tag: "Bestseller",
+    name: "Soft Glam Set",
+    description: "Scrunchies meet lip care in this dreamy glam bundle. Gift small, love big — the perfect treat for yourself or someone special.",
+    price: "₦7,000", oldPrice: "₦4,500", emoji: "🌹", tag: "Hot Pick",
     theme: {
-      primary:"#f472b6", secondary:"#c084fc",
-      bg:"linear-gradient(135deg,#fdf2f8 0%,#f3e8ff 100%)",
-      cardBg:"linear-gradient(135deg,#fce7f3 0%,#ede9fe 100%)",
-      accent:"#e879f9", text:"#6b21a8", tagBg:"#fce7f3", tagColor:"#be185d",
+      primary: "#f43f5e", secondary: "#fb7185",
+      bg: "linear-gradient(135deg,#fff1f2 0%,#ffe4e6 100%)",
+      cardBg: "linear-gradient(135deg,#ffe4e6 0%,#fecdd3 100%)",
+      accent: "#e11d48", text: "#881337", tagBg: "#ffe4e6", tagColor: "#be123c",
     },
-    items:["3 Pastel Scrunchies","1 Claw Clip","2 Pearl Hair Pins","1 Mini Brush"],
-    colors:["#f9a8d4","#93c5fd","#a5f3fc","#c4b5fd"],
-    images:[
-      // SLOT 1 — Main product photo (shown on card & first in gallery)
-      "/images/b.jpeg",
-      // SLOT 2 — Second gallery photo
-      "images/ac.jpeg",
-    "images/ab.jpeg",
-    "images/ad.jpeg",
+    items: ["3 Scrunchies", "1 Lip Scrub", "1 Lip Oil", "1 Lip Gloss"],
+    colors: ["#f9a8d4", "#fda4af", "#fb7185", "#e11d48"],
+    images: [
+      "/images/WhatsApp Image 2026-03-18 at 7.11.24 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.52.58 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.39 PM (1).jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.41 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.34 PM (1).jpeg",
     ],
   },
 
-  // ─────────────────────────────────────────────────────────
-  //  BUNDLE 2 — Baddie Hair Kit
-  // ─────────────────────────────────────────────────────────
   {
     id: 2,
-    name: "Baddie Hair Kit",
-    description: "Sleek satin scrunchies + bold accessories for girls who own every room they walk into.",
-    price: "₦5,200", oldPrice: "₦7,000", emoji: "🖤", tag: "Hot 🔥",
+    name: "Campus Cutie Combo",
+    description: "Your go-to school pack — scrunchies, a mini tote, and a keychain to keep you classy in class every single day.",
+    price: "₦9,000", oldPrice: "₦8,000", emoji: "🎒", tag: "Student Fave",
     theme: {
-      primary:"#f43f5e", secondary:"#fb923c",
-      bg:"linear-gradient(135deg,#fff1f2 0%,#fff7ed 100%)",
-      cardBg:"linear-gradient(135deg,#ffe4e6 0%,#ffedd5 100%)",
-      accent:"#e11d48", text:"#881337", tagBg:"#ffe4e6", tagColor:"#be123c",
+      primary: "#eab308", secondary: "#facc15",
+      bg: "linear-gradient(135deg,#fefce8 0%,#fef9c3 100%)",
+      cardBg: "linear-gradient(135deg,#fef9c3 0%,#fef08a 100%)",
+      accent: "#ca8a04", text: "#713f12", tagBg: "#fef9c3", tagColor: "#a16207",
     },
-    items:["4 Satin Scrunchies","1 Gold Chain Clip","2 Bobby Pins","1 Edge Brush"],
-    colors:["#1f2937","#dc2626","#d97706","#111827"],
-    images:[
-      "images/c.jpeg",
-      "images/ac.jpeg",
-    "images/ab.jpeg",
-    "images/ad.jpeg"
+    items: ["3 Scrunchies", "1 Mini Tote Bag", "1 Keychain"],
+    colors: ["#fde047", "#facc15", "#eab308", "#ca8a04"],
+    images: [
+      "/images/WhatsApp Image 2026-03-18 at 7.12.44 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.52.58 PM (1).jpeg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.54.39 PM.jpeg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.54.33 PM (1).jpeg",
     ],
   },
 
-  // ─────────────────────────────────────────────────────────
-  //  BUNDLE 3 — Bestie Bundle
-  // ─────────────────────────────────────────────────────────
   {
     id: 3,
-    name: "Bestie Bundle",
-    description: "The ultimate gift for your ride-or-die. Comes in a beautiful gift box, ready to give and ready to love.",
-    price: "₦8,000", oldPrice: "₦11,000", emoji: "💜", tag: "Gift Ready",
+    name: "Mini Gift Box",
+    description: "Cute things really do come in small packages. A sweet little bundle of joy for gifting or self-treating.",
+    price: "₦6,000", oldPrice: "₦9,500", emoji: "🎁", tag: "Best Value",
     theme: {
-      primary:"#a855f7", secondary:"#818cf8",
-      bg:"linear-gradient(135deg,#faf5ff 0%,#eef2ff 100%)",
-      cardBg:"linear-gradient(135deg,#f3e8ff 0%,#e0e7ff 100%)",
-      accent:"#7c3aed", text:"#5b21b6", tagBg:"#f3e8ff", tagColor:"#7c3aed",
+      primary: "#a855f7", secondary: "#c084fc",
+      bg: "linear-gradient(135deg,#faf5ff 0%,#f3e8ff 100%)",
+      cardBg: "linear-gradient(135deg,#f3e8ff 0%,#e9d5ff 100%)",
+      accent: "#9333ea", text: "#581c87", tagBg: "#f3e8ff", tagColor: "#7e22ce",
     },
-    items:["6 Mixed Scrunchies","2 Claw Clips","1 Satin Headband","Gift Box Included"],
-    colors:["#c4b5fd","#f0abfc","#f9a8d4","#818cf8"],
-    images:[
-      "images/d.jpeg",
-      "images/ac.jpeg",
-    "images/ab.jpeg",
-    "images/ad.jpeg"
+    items: ["2 Scrunchies", "1 Lip Gloss", "1 Small Keychain", "1 Toothbrush Case"],
+    colors: ["#d8b4fe", "#c084fc", "#a855f7", "#9333ea"],
+    images: [
+      "public/images/WhatsApp Image 2026-03-18 at 7.13.32 PM.jpeg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.52.58 PM (1).jpeg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.54.33 PM (1).jpeg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.54.34 PM (1).jpeg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.54.38 PM.jpeg",
     ],
   },
 
-  // ─────────────────────────────────────────────────────────
-  //  BUNDLE 4 — Weekend Slay Combo
-  // ─────────────────────────────────────────────────────────
   {
     id: 4,
-    name: "Weekend Slay Combo",
-    description: "Luxe satin pieces for your lazy glam days. Effortlessly chic from morning to midnight.",
-    price: "₦6,500", oldPrice: "₦8,500", emoji: "✨", tag: "New",
+    name: "Little Self Care Gift Pack",
+    description: "Your beauty routine just got an upgrade. Satin scrunchies, a headband, lip gloss and more — because you deserve it.",
+    price: "₦8,500", oldPrice: "₦5,200", emoji: "💕", tag: "Self Care",
     theme: {
-      primary:"#f59e0b", secondary:"#84cc16",
-      bg:"linear-gradient(135deg,#fffbeb 0%,#f7fee7 100%)",
-      cardBg:"linear-gradient(135deg,#fef3c7 0%,#ecfccb 100%)",
-      accent:"#d97706", text:"#78350f", tagBg:"#fef3c7", tagColor:"#b45309",
+      primary: "#ec4899", secondary: "#f472b6",
+      bg: "linear-gradient(135deg,#fdf2f8 0%,#fce7f3 100%)",
+      cardBg: "linear-gradient(135deg,#fce7f3 0%,#fbcfe8 100%)",
+      accent: "#db2777", text: "#831843", tagBg: "#fce7f3", tagColor: "#be185d",
     },
-    items:["2 Jumbo Satin Scrunchies","1 Silk Headband","1 Claw Clip","1 Hair Serum"],
-    colors:["#92400e","#1f2937","#d97706","#78350f"],
-    images:[
-      "images/e.jpeg",
-      "images/ac.jpeg",
-    "images/ab.jpeg",
-    "images/ad.jpeg"
+    items: ["2 Satin Scrunchies", "1 Beauty Routine Set", "1 Headband", "1 Lip Gloss"],
+    colors: ["#f9a8d4", "#f472b6", "#ec4899", "#db2777"],
+    images: [
+      "public/images/WhatsApp Image 2026-03-18 at 7.14.15 PM.jpeg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.52.58 PM (1).jpeg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.54.42 PM (2).jpegg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.54.42 PM (1).jpeg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.54.39 PM (2).jpeg",
     ],
   },
 
-  // ─────────────────────────────────────────────────────────
-  //  BUNDLE 5 — Mini Gift Box
-  // ─────────────────────────────────────────────────────────
   {
     id: 5,
-    name: "Mini Gift Box",
-    description: "Cute lil box, big hair love. The sweetest surprise for anyone who deserves a treat.",
-    price: "₦3,500", oldPrice: "₦5,000", emoji: "🎁", tag: "Gifting",
+    name: "Bestie Bundle",
+    description: "Because besties twin without even planning it. Two sets of scrunchies, matching bracelets, and mini jotters for you and your girl.",
+    price: "₦9,000", oldPrice: "₦6,500", emoji: "👯‍♀️", tag: "BFF Special",
     theme: {
-      primary:"#fb7185", secondary:"#f472b6",
-      bg:"linear-gradient(135deg,#fff1f2 0%,#fdf2f8 100%)",
-      cardBg:"linear-gradient(135deg,#ffe4e6 0%,#fce7f3 100%)",
-      accent:"#e11d48", text:"#be123c", tagBg:"#fce7f3", tagColor:"#be185d",
+      primary: "#06b6d4", secondary: "#22d3ee",
+      bg: "linear-gradient(135deg,#ecfeff 0%,#cffafe 100%)",
+      cardBg: "linear-gradient(135deg,#cffafe 0%,#a5f3fc 100%)",
+      accent: "#0891b2", text: "#164e63", tagBg: "#cffafe", tagColor: "#0e7490",
     },
-    items:["2 Scrunchies","1 Mini Claw Clip","Heart Sticker Pack","Gift Ribbon"],
-    colors:["#f9a8d4","#fda4af","#fecdd3","#fbcfe8"],
-    images:[
-      "images/f.jpeg",
-      "images/ac.jpeg",
-    "images/ab.jpeg",
-    "images/ad.jpeg"
+    items: ["4 Scrunchies (2 for you, 2 for your bestie)", "2 Cute Bracelets", "2 Mini Jotters"],
+    colors: ["#a5f3fc", "#67e8f9", "#22d3ee", "#06b6d4"],
+    images: [
+      "public/images/WhatsApp Image 2026-03-18 at 7.14.47 PM.jpeg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.52.58 PM (1).jpeg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.54.37 PM (2).jpeg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.54.37 PM (1).jpeg",
     ],
   },
 
-  // ─────────────────────────────────────────────────────────
-  //  BUNDLE 6 — Luxury Satin Set
-  // ─────────────────────────────────────────────────────────
   {
     id: 6,
-    name: "Luxury Satin Set",
-    description: "Premium satin collection for silky, damage-free styling. Because your hair deserves 5-star treatment every day.",
-    price: "₦9,500", oldPrice: "₦13,000", emoji: "👑", tag: "Premium",
+    name: "Luxury Set",
+    description: "Affordable, adorable, unforgettable. High-quality satin scrunchies plus all the extras — because you deserve nothing less.",
+    price: "₦7,500", oldPrice: "₦3,500", emoji: "💎", tag: "Premium",
     theme: {
-      primary:"#d97706", secondary:"#a16207",
-      bg:"linear-gradient(135deg,#fffbeb 0%,#fefce8 100%)",
-      cardBg:"linear-gradient(135deg,#fef3c7 0%,#fef9c3 100%)",
-      accent:"#b45309", text:"#78350f", tagBg:"#fef3c7", tagColor:"#92400e",
+      primary: "#8b5cf6", secondary: "#a78bfa",
+      bg: "linear-gradient(135deg,#f5f3ff 0%,#ede9fe 100%)",
+      cardBg: "linear-gradient(135deg,#ede9fe 0%,#ddd6fe 100%)",
+      accent: "#7c3aed", text: "#4c1d95", tagBg: "#ede9fe", tagColor: "#6d28d9",
     },
-    items:["5 Luxury Satin Scrunchies","1 Silk Pillowcase","1 Satin Bonnet","1 Hair Oil"],
-    colors:["#92400e","#b45309","#d97706","#78350f"],
-    images:[
-      "images/g.jpeg",
-      "images/ac.jpeg",
-    "images/ab.jpeg",
-    "images/ad.jpeg"
+    items: ["5 High-Quality Satin Scrunchies", "1 Hair Comb", "1 Pocket Perfume", "1 Cute Pen", "1 Pretty Clip"],
+    colors: ["#c4b5fd", "#a78bfa", "#8b5cf6", "#7c3aed"],
+    images: [
+      "public/images/WhatsApp Image 2026-03-18 at 7.15.28 PM.jpeg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.52.59 PM.jpeg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.54.36 PM.jpeg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.54.33 PM.jpeg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.54.36 PM (3).jpeg",
+      "public/images/WhatsApp Image 2026-03-18 at 7.54.34 PM.jpeg",
     ],
-  },
-
-  // ─────────────────────────────────────────────────────────
-  //  BUNDLE 7 — Color Pop Pack
-  // ─────────────────────────────────────────────────────────
-  {
-    id: 7,
-    name: "Color Pop Pack",
-    description: "Bold, vibrant scrunchies for girls who aren't afraid to stand out. Life's too short for boring hair.",
-    price: "₦5,800", oldPrice: "₦7,500", emoji: "🌈", tag: "Fan Fave",
-    theme: {
-      primary:"#06b6d4", secondary:"#3b82f6",
-      bg:"linear-gradient(135deg,#ecfeff 0%,#eff6ff 100%)",
-      cardBg:"linear-gradient(135deg,#cffafe 0%,#dbeafe 100%)",
-      accent:"#0891b2", text:"#164e63", tagBg:"#cffafe", tagColor:"#0e7490",
-    },
-    items:["5 Colourful Scrunchies","1 Rainbow Claw Clip","1 Beaded Hair Tie","1 Colour Guide"],
-    colors:["#f87171","#fb923c","#facc15","#4ade80","#60a5fa","#c084fc"],
-    images:[
-      "images/b.jpeg",
-      "images/ac.jpeg",
-    "images/ab.jpeg",
-    "images/ad.jpeg"
-    ],
-  },
-   
-  {
-  id: 8,
-  name: "Pastel Dream Pack",
-  description: "Soft pastel hair accessories for a calm, dreamy aesthetic. Perfect for cute everyday styles.",
-  price: "₦5,400", oldPrice: "₦7,000", emoji: "🌸", tag: "Cute Pick",
-  theme: {
-    primary:"#f472b6", secondary:"#a78bfa",
-    bg:"linear-gradient(135deg,#fdf2f8 0%,#f5f3ff 100%)",
-    cardBg:"linear-gradient(135deg,#fbcfe8 0%,#e9d5ff 100%)",
-    accent:"#db2777", text:"#701a75", tagBg:"#fce7f3", tagColor:"#be185d",
-  },
-  items:["5 Pastel Scrunchies","1 Butterfly Clip","1 Pearl Hair Tie","1 Style Guide"],
-  colors:["#f9a8d4","#fbcfe8","#c4b5fd","#ddd6fe","#a5b4fc","#bfdbfe"],
-  images:[
-    "images/c.jpeg",
-    "images/ac.jpeg",
-    "images/ab.jpeg",
-    "images/ad.jpeg"
-  ],
-  },
-
-  {
-  id: 9,
-  name: "Glow Girl Pack",
-  description: "Shiny clips and glam scrunchies that sparkle under the lights. Built for girls who love a little shine.",
-  price: "₦6,200", oldPrice: "₦8,000", emoji: "✨", tag: "Trending",
-  theme: {
-    primary:"#f59e0b", secondary:"#f43f5e",
-    bg:"linear-gradient(135deg,#fff7ed 0%,#ffe4e6 100%)",
-    cardBg:"linear-gradient(135deg,#fde68a 0%,#fecdd3 100%)",
-    accent:"#d97706", text:"#7c2d12", tagBg:"#fef3c7", tagColor:"#b45309",
-  },
-  items:["4 Glitter Scrunchies","2 Metallic Hair Clips","1 Crystal Hair Tie","1 Mini Mirror"],
-  colors:["#fbbf24","#f472b6","#fb7185","#facc15","#fcd34d","#fde68a"],
-  images:[
-    "images/d.jpeg",
-    "images/ac.jpeg",
-    "images/ab.jpeg",
-    "images/ad.jpeg"
-  ],
-  },
-
-  {
-  id: 10,
-  name: "Minimal Chic Pack",
-  description: "Clean, elegant hair accessories for a simple but classy look. Quiet beauty that speaks loud style.",
-  price: "₦5,000", oldPrice: "₦6,800", emoji: "🖤", tag: "Classy",
-  theme: {
-    primary:"#6b7280", secondary:"#111827",
-    bg:"linear-gradient(135deg,#f9fafb 0%,#f3f4f6 100%)",
-    cardBg:"linear-gradient(135deg,#e5e7eb 0%,#d1d5db 100%)",
-    accent:"#374151", text:"#111827", tagBg:"#e5e7eb", tagColor:"#1f2937",
-  },
-  items:["3 Neutral Scrunchies","2 Matte Claw Clips","1 Silk Hair Tie","1 Care Card"],
-  colors:["#111827","#374151","#6b7280","#9ca3af","#d1d5db","#f3f4f6"],
-  images:[
-    "images/b.jpeg",
-    "images/ac.jpeg",
-    "images/ab.jpeg",
-    "images/ad.jpeg"
-  ],
   },
 
 
