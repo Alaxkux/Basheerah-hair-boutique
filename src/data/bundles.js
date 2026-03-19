@@ -80,8 +80,8 @@ export const bundles = [
     images: [
       "/images/WhatsApp Image 2026-03-18 at 7.12.44 PM.jpeg",
       "/images/WhatsApp Image 2026-03-18 at 7.52.58 PM (1).jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.39 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.33 PM (1).jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.39 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.33 PM (1).jpeg",
     ],
   },
 
@@ -99,11 +99,11 @@ export const bundles = [
     items: ["2 Scrunchies", "1 Lip Gloss", "1 Small Keychain", "1 Toothbrush Case"],
     colors: ["#d8b4fe", "#c084fc", "#a855f7", "#9333ea"],
     images: [
-      "public/images/WhatsApp Image 2026-03-18 at 7.13.32 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.52.58 PM (1).jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.33 PM (1).jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.34 PM (1).jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.38 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.13.32 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.52.58 PM (1).jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.33 PM (1).jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.34 PM (1).jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.38 PM.jpeg",
     ],
   },
 
@@ -121,11 +121,11 @@ export const bundles = [
     items: ["2 Satin Scrunchies", "1 Beauty Routine Set", "1 Headband", "1 Lip Gloss"],
     colors: ["#f9a8d4", "#f472b6", "#ec4899", "#db2777"],
     images: [
-      "public/images/WhatsApp Image 2026-03-18 at 7.14.15 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.52.58 PM (1).jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.42 PM (2).jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.42 PM (1).jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.39 PM (2).jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.14.15 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.52.58 PM (1).jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.42 PM (2).jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.42 PM (1).jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.39 PM (2).jpeg",
     ],
   },
 
@@ -143,10 +143,10 @@ export const bundles = [
     items: ["4 Scrunchies (2 for you, 2 for your bestie)", "2 Cute Bracelets", "2 Mini Jotters"],
     colors: ["#a5f3fc", "#67e8f9", "#22d3ee", "#06b6d4"],
     images: [
-      "public/images/WhatsApp Image 2026-03-18 at 7.14.47 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.52.58 PM (1).jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.37 PM (2).jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.37 PM (1).jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.14.47 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.52.58 PM (1).jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.37 PM (2).jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.37 PM (1).jpeg",
     ],
   },
 
@@ -164,12 +164,12 @@ export const bundles = [
     items: ["5 High-Quality Satin Scrunchies", "1 Hair Comb", "1 Pocket Perfume", "1 Cute Pen", "1 Pretty Clip"],
     colors: ["#c4b5fd", "#a78bfa", "#8b5cf6", "#7c3aed"],
     images: [
-      "public/images/WhatsApp Image 2026-03-18 at 7.15.28 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.52.59 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.36 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.33 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.36 PM (3).jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.34 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.15.28 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.52.59 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.36 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.33 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.36 PM (3).jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.34 PM.jpeg",
     ],
   },
 
@@ -187,10 +187,10 @@ export const bundles = [
     items: ["3 Pastel Scrunchies", "1 Matching Hair Clip", "1 Cute Bracelet"],
     colors: ["#f9a8d4", "#c084fc", "#a5f3fc", "#c4b5fd"],
     images: [
-      "public/images/WhatsApp Image 2026-03-02 at 12.15.24 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.52.58 PM (1).jpeg",
-      "public/images/WhatsApp Image 2026-03-02 at 12.15.35 AM.jpeg",
-      "public/images/WhatsApp Image 2026-03-02 at 12.15.37 AM.jpeg",
+      "/images/WhatsApp Image 2026-03-02 at 12.15.24 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.52.58 PM (1).jpeg",
+      "/images/WhatsApp Image 2026-03-02 at 12.15.35 AM.jpeg",
+      "/images/WhatsApp Image 2026-03-02 at 12.15.37 AM.jpeg",
     ],
   },
 
@@ -208,10 +208,10 @@ export const bundles = [
     items: ["2 Satin Scrunchies", "1 Pocket Mirror", "1 Gold Bracelet"],
     colors: ["#d97706", "#fbbf24", "#78716c", "#292524"],
     images: [
-      "public/images/WhatsApp Image 2026-03-02 at 12.33.05 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.52.58 PM (1).jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.37 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.36 PM (1).jpeg",
+      "/images/WhatsApp Image 2026-03-02 at 12.33.05 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.52.58 PM (1).jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.37 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.36 PM (1).jpeg",
     ],
   },
 
@@ -229,9 +229,9 @@ export const bundles = [
     items: ["3 Scrunchies", "1 Headband", "1 Pair of Cute Earrings"],
     colors: ["#fed7aa", "#fb923c", "#f97316", "#ea580c"],
     images: [
-      "public/images/WhatsApp Image 2026-03-02 at 1.07.02 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.52.58 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.38 PM (1).jpeg",
+      "/images/WhatsApp Image 2026-03-02 at 1.07.02 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.52.58 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.38 PM (1).jpeg",
       
     ],
   },
@@ -250,11 +250,11 @@ export const bundles = [
     items: ["2 Satin Scrunchies", "2 Face Masks", "1 Toothbrush Case", "1 Tongue Scraper"],
     colors: ["#99f6e4", "#2dd4bf", "#14b8a6", "#0d9488"],
     images: [
-      "public/images/WhatsApp Image 2026-03-06 at 10.33.50 AM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.52.59 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.40 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.38 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.41 PM (3).jpeg",
+      "/images/WhatsApp Image 2026-03-06 at 10.33.50 AM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.52.59 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.40 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.38 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.41 PM (3).jpeg",
     ],
   },
 
@@ -272,9 +272,9 @@ export const bundles = [
     items: ["2 Satin Scrunchies", "1 Jewelry Box", "1 Cute Bow Bottle"],
     colors: ["#fda4af", "#fb7185", "#f43f5e", "#e11d48"],
     images: [
-      "public/images/WhatsApp Image 2026-03-10 at 6.34.21 AM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.52.59 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.43 PM (2).jpeg",
+      "/images/WhatsApp Image 2026-03-10 at 6.34.21 AM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.52.59 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.43 PM (2).jpeg",
     ],
   },
 
@@ -292,11 +292,11 @@ export const bundles = [
     items: ["2 Satin Scrunchies", "Cute Hairbands", "1 Pedicure Set", "1 Hair Comb"],
     colors: ["#6ee7b7", "#34d399", "#10b981", "#059669"],
     images: [
-      "public/images/WhatsApp Image 2026-03-11 at 5.44.18 AM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.52.58 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.44 PM (3).jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.41 PM (1).jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.36 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-11 at 5.44.18 AM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.52.58 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.44 PM (3).jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.41 PM (1).jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.36 PM.jpeg",
     ],
   },
 
@@ -314,10 +314,10 @@ export const bundles = [
     items: ["3 Scrunchies", "1 Mini Mirror", "1 Pocket Perfume", "1 Cute Lip Gloss"],
     colors: ["#fde68a", "#fbbf24", "#f59e0b", "#d97706"],
     images: [
-      "public/images/WhatsApp Image 2026-03-12 at 6.20.23 AM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.52.59 PM.jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.36 PM (3).jpeg",
-      "public/images/WhatsApp Image 2026-03-18 at 7.54.34 PM (1).jpeg",
+      "/images/WhatsApp Image 2026-03-12 at 6.20.23 AM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.52.59 PM.jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.36 PM (3).jpeg",
+      "/images/WhatsApp Image 2026-03-18 at 7.54.34 PM (1).jpeg",
     ],
   },
 
