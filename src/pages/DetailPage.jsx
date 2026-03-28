@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { WHATSAPP_NUMBER } from "../data/bundles.js";
 import { spawnConfetti } from "../components/Confetti.jsx";
 import ConfirmDialog from "../components/ConfirmDialog.jsx";
@@ -10,8 +10,8 @@ export default function DetailPage({ bundle, onBack, onAddToCart }) {
   if (!bundle) return null;
   const { theme } = bundle;
   const priceParsed    = parseInt(bundle.price.replace(/[₦,]/g,""));
-  const oldPriceParsed = parseInt(bundle.oldPrice.replace(/[₦,]/g,""));
-  const savePct        = Math.round((1 - priceParsed / oldPriceParsed) * 100);
+  const oldPriceParsed = parseInt((bundle.oldPrice || bundle.price).replace(/[₦,]/g,""));
+  const savePct        = oldPriceParsed > priceParsed ? Math.round((1 - priceParsed / oldPriceParsed) * 100) : 0;
 
   const orderNow = () => {
     const msg = `Hi! I'd like to order the *${bundle.name}* (${bundle.price}) 💕`;
@@ -28,10 +28,10 @@ export default function DetailPage({ bundle, onBack, onAddToCart }) {
   const prev = () => setImgIdx(i => (i - 1 + bundle.images.length) % bundle.images.length);
   const next = () => setImgIdx(i => (i + 1) % bundle.images.length);
 
-  let touchStartX = 0;
-  const onTouchStart = e => { touchStartX = e.touches[0].clientX; };
+  const touchStartX = useRef(0);
+  const onTouchStart = e => { touchStartX.current = e.touches[0].clientX; };
   const onTouchEnd   = e => {
-    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
     if (dx > 50) prev(); else if (dx < -50) next();
   };
 
@@ -60,7 +60,11 @@ export default function DetailPage({ bundle, onBack, onAddToCart }) {
           <button className="gallery-arrow prev" onClick={prev}>‹</button>
           <button className="gallery-arrow next" onClick={next}>›</button>
         </>}
-        <button className="detail-back-btn" onClick={onBack}>←</button>
+        <button className="detail-back-btn" onClick={onBack}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
         <span className="detail-img-tag" style={{background:theme.primary}}>{bundle.tag}</span>
       </div>
 

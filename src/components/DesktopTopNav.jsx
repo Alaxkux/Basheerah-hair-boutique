@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BRAND, WHATSAPP_NUMBER } from "../data/bundles.js";
 
 const LINKS = ["Home","Shop","Bundles","Contact"];
-const PAGE_MAP = { Home:"home", Shop:"bundles", Bundles:"bundles", Contact:"home" };
+const PAGE_MAP = { Home:"home", Shop:"bundles", Bundles:"bundles" };
 
 export default function DesktopTopNav({ activePage, cartCount, onNavigate, onSearch }) {
   const [query, setQuery] = useState("");
@@ -31,7 +31,7 @@ export default function DesktopTopNav({ activePage, cartCount, onNavigate, onSea
         {LINKS.map(link => (
           <button key={link}
             className={`dtnav-link ${current === PAGE_MAP[link] ? "active" : ""}`}
-            onClick={() => onNavigate(PAGE_MAP[link])}
+            onClick={() => link === "Contact" ? openWA() : onNavigate(PAGE_MAP[link])}
           >{link}</button>
         ))}
       </nav>

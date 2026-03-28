@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { WHATSAPP_NUMBER } from "../data/bundles.js";
 import ConfirmDialog from "../components/ConfirmDialog.jsx";
+import { useIsDesktop } from "../utils/hooks.js";
 
 function CartSummary({ cart, total, onCheckout }) {
   return (
@@ -28,15 +29,19 @@ function CartSummary({ cart, total, onCheckout }) {
 }
 
 export default function CartPage({ cart, onUpdateQty, onRemove, onNavigate, onPlaceOrder }) {
-  const isDesktop = window.innerWidth >= 1024;
-  const total = cart.reduce((s,i) => s + parseInt(i.price.replace(/[₦,]/g,"")) * i.qty, 0);
+  const isDesktop = useIsDesktop();
+  const total = useMemo(
+    () => cart.reduce((s,i) => s + parseInt(i.price.replace(/[₦,]/g,"")) * i.qty, 0),
+    [cart]
+  );
 
   // Confirm states
-  const [removeTarget, setRemoveTarget] = useState(null); // item to remove
-  const [showCheckout, setShowCheckout] = useState(false); // checkout confirm
+  const [removeTarget, setRemoveTarget] = useState(null);
+  const [showCheckout, setShowCheckout] = useState(false);
+  const [justOrdered,  setJustOrdered]  = useState(false);
 
   const confirmRemove = (item) => setRemoveTarget(item);
-  const doRemove = () => { onRemove(removeTarget.id); setRemoveTarget(null); };
+  const doRemove = () => { if (!removeTarget) return; onRemove(removeTarget.id); setRemoveTarget(null); };
 
   const confirmCheckout = () => setShowCheckout(true);
   const doCheckout = () => {
@@ -44,6 +49,7 @@ export default function CartPage({ cart, onUpdateQty, onRemove, onNavigate, onPl
     const lines = cart.map(i => `• ${i.name} x${i.qty} — ${i.price}`).join("\n");
     const msg = `Hi! I'd like to order:\n${lines}\n\nTotal: ₦${total.toLocaleString()} 💕`;
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
+    setJustOrdered(true);
     onPlaceOrder && onPlaceOrder();
   };
 
@@ -51,9 +57,19 @@ export default function CartPage({ cart, onUpdateQty, onRemove, onNavigate, onPl
     <div className="page">
       <div className="page-header">My Cart 🛒</div>
       <div className="empty-state">
-        <div className="empty-icon">🛒</div>
-        <h3>Your cart is empty</h3>
-        <p>Add some beautiful bundles!</p>
+        {justOrdered ? (
+          <>
+            <div className="empty-icon">🎉</div>
+            <h3>Order sent!</h3>
+            <p>Your order was sent to WhatsApp. We'll confirm it shortly 💕</p>
+          </>
+        ) : (
+          <>
+            <div className="empty-icon">🛒</div>
+            <h3>Your cart is empty</h3>
+            <p>Add some beautiful bundles!</p>
+          </>
+        )}
         <button className="btn-primary" onClick={() => onNavigate("bundles")}>Browse Bundles</button>
       </div>
     </div>

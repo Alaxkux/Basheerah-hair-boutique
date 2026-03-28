@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 // Double-confirmation dialog with matching cancel button
 // Used for: removing cart items, clearing cart, placing orders
 export default function ConfirmDialog({ title, message, confirmLabel = "Yes, go ahead", cancelLabel = "No, cancel", onConfirm, onCancel, danger = false }) {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = ""; };
+  }, []);
+
   return (
     <div className="confirm-overlay" onClick={onCancel}>
       <div className="confirm-dialog" onClick={e => e.stopPropagation()}>

@@ -232,7 +232,6 @@ export const bundles = [
       "/images/WhatsApp Image 2026-03-02 at 1.07.02 PM.jpeg",
       "/images/WhatsApp Image 2026-03-18 at 7.52.58 PM.jpeg",
       "/images/WhatsApp Image 2026-03-18 at 7.54.38 PM (1).jpeg",
-      
     ],
   },
 

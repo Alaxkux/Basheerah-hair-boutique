@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import BundleGrid from "../components/BundleGrid.jsx";
 import { bundles } from "../data/bundles.js";
 
-export default function BundlesPage({ searchOpen, desktopSearch = "", onSelectBundle, onNavigate }) {
+export default function BundlesPage({ searchOpen, desktopSearch = "", onSelectBundle, onNavigate, onAddToCart }) {
   const [query, setQuery] = useState(desktopSearch);
 
   // Sync desktop search into local query
   useEffect(() => { setQuery(desktopSearch); }, [desktopSearch]);
+
+  // Clear local query when mobile search bar is closed
+  useEffect(() => { if (!searchOpen) setQuery(""); }, [searchOpen]);
 
   const filtered = bundles.filter(b =>
     b.name.toLowerCase().includes(query.toLowerCase()) ||
@@ -28,7 +31,7 @@ export default function BundlesPage({ searchOpen, desktopSearch = "", onSelectBu
       )}
 
       {filtered.length > 0
-        ? <BundleGrid bundles={filtered} onSelect={(b) => { onSelectBundle(b); onNavigate("detail"); }} />
+        ? <BundleGrid bundles={filtered} onSelect={(b) => { onSelectBundle(b); onNavigate("detail"); }} onAddToCart={onAddToCart} />
         : (
           <div className="empty-state">
             <div className="empty-icon">🔍</div>

@@ -3,6 +3,8 @@ import { WHATSAPP_NUMBER } from "../data/bundles.js";
 import { saveProfile } from "../utils/storage.js";
 import ConfirmDialog from "../components/ConfirmDialog.jsx";
 
+import { useIsDesktop } from "../utils/hooks.js";
+
 const AVATARS = [
   {emoji:"👩🏾", bg:"linear-gradient(135deg,#ec4899,#f472b6)"},
   {emoji:"👑",  bg:"linear-gradient(135deg,#d97706,#fbbf24)"},
@@ -96,7 +98,16 @@ export default function ProfilePage({ onNavigate, orderCount, initialProfile, on
   const [confirmAvatar, setConfirmAvatar] = useState(null);
   const [confirmTheme,  setConfirmTheme]  = useState(null);
 
-  const isDesktop = window.innerWidth >= 1024;
+  useEffect(() => {
+    if (showAvatars) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [showAvatars]);
+
+  const isDesktop = useIsDesktop();
   const avatar = AVATARS[avatarIdx];
   const theme  = THEMES[themeIdx];
 
@@ -164,6 +175,7 @@ export default function ProfilePage({ onNavigate, orderCount, initialProfile, on
         </div>
         {editingName
           ? <input className="profile-name-input" value={name} autoFocus
+              maxLength={32}
               onChange={e => setName(e.target.value)}
               onBlur={saveName}
               onKeyDown={e => e.key === "Enter" && saveName()}

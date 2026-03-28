@@ -24,6 +24,7 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 // Utils
 import { WHATSAPP_NUMBER } from "./data/bundles.js";
 import { saveCart, loadCart, saveOrders, loadOrders, saveProfile, loadProfile } from "./utils/storage.js";
+import { useIsDesktop } from "./utils/hooks.js";
 import { THEMES } from "./pages/ProfilePage.jsx";
 
 // Styles
@@ -32,17 +33,6 @@ import "./styles/components.css";
 import "./styles/hero.css";
 import "./styles/detail.css";
 import "./styles/desktop.css";
-
-function useIsDesktop() {
-  const [v, setV] = useState(() => window.innerWidth >= 1024);
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width:1024px)");
-    const h = e => setV(e.matches);
-    mq.addEventListener("change", h);
-    return () => mq.removeEventListener("change", h);
-  }, []);
-  return v;
-}
 
 export default function App() {
   const isDesktop = useIsDesktop();
@@ -99,6 +89,15 @@ export default function App() {
     setCart(prev => prev.map(i => i.id===id ? {...i,qty:Math.max(1,i.qty+delta)} : i)), []);
   const cartCount = cart.reduce((s,i) => s+i.qty, 0);
 
+  const navigate = useCallback((page) => {
+    setActivePage(page);
+    if (page !== "bundles") { setSearchOpen(false); setDesktopSearch(""); }
+    // Target the app-shell container for reliable scroll on iOS Safari
+    const shell = document.querySelector(".app-shell");
+    if (shell) shell.scrollTo({ top: 0, behavior: "smooth" });
+    else window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   const placeOrder = useCallback(() => {
     if (!cart.length) return;
     const newOrders = cart.map((item, idx) => ({
@@ -111,7 +110,7 @@ export default function App() {
     setCart([]);
     showToast("🎉 Order placed! Check the Orders tab.");
     navigate("orders");
-  }, [cart, showToast]);
+  }, [cart, showToast, navigate]);
 
   const handleProfileChange = useCallback((p) => {
     setProfile(p); saveProfile(p);
@@ -121,16 +120,10 @@ export default function App() {
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
   }, []);
 
-  const navigate = useCallback((page) => {
-    setActivePage(page);
-    if (page !== "bundles") { setSearchOpen(false); setDesktopSearch(""); }
-    window.scrollTo({top:0,behavior:"smooth"});
-  }, []);
-
   const renderPage = () => {
     switch(activePage) {
-      case "home":    return <HomePage    onNavigate={navigate} onSelectBundle={setSelectedBundle} />;
-      case "bundles": return <BundlesPage searchOpen={searchOpen} desktopSearch={desktopSearch} onSelectBundle={setSelectedBundle} onNavigate={navigate} />;
+      case "home":    return <HomePage    onNavigate={navigate} onSelectBundle={setSelectedBundle} onAddToCart={addToCart} />;
+      case "bundles": return <BundlesPage searchOpen={searchOpen} desktopSearch={desktopSearch} onSelectBundle={setSelectedBundle} onNavigate={navigate} onAddToCart={addToCart} />;
       case "detail":  return <DetailPage  bundle={selectedBundle} onBack={() => navigate("bundles")} onAddToCart={addToCart} />;
       case "cart":    return <CartPage    cart={cart} onUpdateQty={updateQty} onRemove={removeFromCart} onNavigate={navigate} onPlaceOrder={placeOrder} />;
       case "orders":  return <OrdersPage  orders={orders} />;

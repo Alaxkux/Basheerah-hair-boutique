@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import BundleGrid from "../components/BundleGrid.jsx";
 import { bundles, BRAND, WHATSAPP_NUMBER } from "../data/bundles.js";
 
-export default function HomePage({ onNavigate, onSelectBundle }) {
+export default function HomePage({ onNavigate, onSelectBundle, onAddToCart }) {
   const waMsg = `Hi! I'd like to shop ${BRAND.name} 💕`;
 
   useEffect(() => {
@@ -84,6 +84,7 @@ export default function HomePage({ onNavigate, onSelectBundle }) {
         <BundleGrid
           bundles={bundles.slice(0,4)}
           onSelect={b => { onSelectBundle(b); onNavigate("detail"); }}
+          onAddToCart={onAddToCart}
         />
       </div>
 

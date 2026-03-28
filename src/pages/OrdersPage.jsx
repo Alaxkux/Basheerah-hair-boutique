@@ -1,8 +1,9 @@
 import React from "react";
 import { WHATSAPP_NUMBER } from "../data/bundles.js";
+import { useIsDesktop } from "../utils/hooks.js";
 
 export default function OrdersPage({ orders }) {
-  const isDesktop = window.innerWidth >= 1024;
+  const isDesktop = useIsDesktop();
 
   const trackOrder = (order) => {
     const msg = `Hi! I'd like to track my order ${order.id} — ${order.bundle} 💕`;
@@ -32,7 +33,9 @@ export default function OrdersPage({ orders }) {
         <span className={`order-status ${order.status.toLowerCase()}`}>{order.status}</span>
       </div>
       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:12}}>
-        <span style={{fontWeight:800,color:"var(--pink-deep)",fontSize:16}}>{order.price}</span>
+        <span style={{fontWeight:800,color:"var(--pink-deep)",fontSize:16}}>
+          ₦{(parseInt(order.price.replace(/[₦,]/g,"")) * (order.qty || 1)).toLocaleString()}
+        </span>
         <button className="btn-view" style={{width:"auto",padding:"6px 18px"}} onClick={() => trackOrder(order)}>
           Track Order
         </button>

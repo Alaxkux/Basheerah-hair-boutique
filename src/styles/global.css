@@ -59,6 +59,8 @@ a { text-decoration: none; color: inherit; }
   background: linear-gradient(180deg,#fdf2f8 0%,#fff0f8 100%);
   position: relative;
   overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   box-shadow: 0 0 80px rgba(236,72,153,0.15);
 }
 
@@ -73,6 +75,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ─── Page wrapper ─── */
 .page {
+  padding-top: calc(var(--nav-h) + 4px);
   padding-bottom: calc(var(--bottom-nav-h) + 16px);
   animation: fadeSlideUp 0.28s ease both;
 }

@@ -64,6 +64,16 @@ export default function PWAInstallPrompt({ activePage }) {
     }
   }, [activePage]);
 
+  // Lock body scroll when overlay is visible
+  useEffect(() => {
+    if (visible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [visible]);
+
   const dismiss = () => setVisible(false);
 
   const triggerInstall = async () => {
